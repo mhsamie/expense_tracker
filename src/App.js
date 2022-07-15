@@ -1,4 +1,3 @@
-import "./App.css";
 import ExpenseApp from "./components/ExpenseApp";
 
 function App() {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import FormComponent from "./FormComponent";
-const OverView = ({ expense, inCome }) => {
+const OverView = ({ expense, inCome, addTransaction }) => {
   const [isShow, setIsShow] = useState(false);
   return (
     <>
@@ -10,7 +10,7 @@ const OverView = ({ expense, inCome }) => {
           {isShow ? "CANCLE" : "ADD"}
         </button>
       </div>
-      {isShow && <FormComponent />}
+      {isShow && <FormComponent addTransaction={addTransaction} />}
       <div>
         <div>income: {inCome}</div>
         <div>expense: {expense}</div>

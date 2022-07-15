@@ -1,5 +1,5 @@
 import { useState } from "react";
-const FormComponent = () => {
+const FormComponent = ({ addTransaction }) => {
   const [FormData, setFormData] = useState({
     type: "Expense",
     amount: 0,
@@ -9,8 +9,12 @@ const FormComponent = () => {
   const onchangeHandler = (e) => {
     setFormData({ ...FormData, [e.target.name]: e.target.value });
   };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    addTransaction(FormData);
+  };
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <input
         type="text"
         name="description"
@@ -31,7 +35,7 @@ const FormComponent = () => {
           onChange={onchangeHandler}
           checked={FormData.type === "Expense"}
         />
-        <lable>Expense</lable>
+        Expense
         <input
           type="radio"
           value="Income"
@@ -39,9 +43,9 @@ const FormComponent = () => {
           checked={FormData.type === "Income"}
           onChange={onchangeHandler}
         />
-        <lable>Income</lable>
+        Income
       </div>
-      <button>Add Transaction</button>
+      <button type="submit">Add Transaction</button>
     </form>
   );
 };
