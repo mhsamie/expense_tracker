@@ -41,7 +41,7 @@ const TransAction = ({ transAction }) => {
               <span>{t.amount} $</span>
             </div>
           ))
-        : "add transactions"}
+        : null}
     </section>
   );
 };
